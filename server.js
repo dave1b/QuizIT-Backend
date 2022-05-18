@@ -47,7 +47,7 @@ server.get('/api/v1/leaderboard', async (req, res) => {
     const collection = db.collection('leaderboard');
     const leaderboard = await collection.findOne({ status: "ok" })
     if (leaderboard) {
-        res.send(leaderboard);
+        res.send(leaderboard.topTenScores);
     } else {
         res.status(404);
     }
