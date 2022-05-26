@@ -21,15 +21,20 @@ const connectionString = `${process.env.LOCALMONGODB}`;
 /* 
 Method for getting a questionSet
 */
+var lastQuestionSet = 0
+var randomNumberForSet = 0
 server.get('/api/v1/questionSet', async (req, res) => {
     const client = await mongoClient.connect(connectionString);
     const db = client.db('quizIT');
     const collection = db.collection('questions');
-    var n = 5
-    var r = Math.floor(Math.random() * n);
-    const result = await collection.find({ questionSet: 1 }).toArray();
+    var questionSetCount = 5
+    while(randomNumberForSet == lastQuestionSet) {
+        randomNumberForSet = Math.floor(Math.random() * questionSetCount)+1;
+    }
+    lastQuestionSet = randomNumberForSet
+    console.log(randomNumberForSet)
+    const result = await collection.find({ questionSet: randomNumberForSet }).toArray();
     console.log("/api/v1/questionSet called -> result: ")
-    result.forEach(r => console.log(r))
     if (result) {
         res.send(result);
     } else {
@@ -87,7 +92,7 @@ server.post('/api/v1/score', async (req, res) => {
                 i++
                 flagNewHighScoreDetected = true
                 return
-            } else if (i + 1 == leaderboard.topTenScores.length && i < 10 && !flagNewHighScoreDetected) {
+            } else if (i + 1 == leaderboard.topTenScores.length && i < 9 && !flagNewHighScoreDetected) {
                 leaderboard.topTenScores[i + 1] = newScore
             }
             else {
