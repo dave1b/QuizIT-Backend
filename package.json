@@ -2,11 +2,11 @@
   "name": "quizit-backend",
   "version": "1.0.0",
   "description": "REST-API",
-  "main": "server.js",
+  "main": "quizITserver.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node quizITserver.js",
+    "dev": "nodemon quizITserver.js"
   },
   "author": "Dave B, Daniele M",
   "license": "ISC",
