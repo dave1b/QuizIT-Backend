@@ -57,7 +57,7 @@ server.get('/api/v1/leaderboard', async (req, res) => {
 
 /* 
 Method for posting a new Score.
-He checks if the score is among the 10 best.
+Checks if the score is among the 10 best.
 First it looks at the score-points and then at the time.
 The higher the points and the lower the time -> the higher is the rank.
 */
@@ -72,22 +72,31 @@ server.post('/api/v1/score', async (req, res) => {
     var i = 0
     var flagNewHighScoreDetected = false
 
-    leaderboard.topTenScores.forEach(ScoreFromDB => {
-        if (ScoreFromDB == null || (newScore.score > ScoreFromDB.score && !flagNewHighScoreDetected) || (newScore.score >= ScoreFromDB.score && newScore.timeInMilliseconds < ScoreFromDB.timeInMilliseconds && !flagNewHighScoreDetected)) {
-            console.log(ScoreFromDB)
-            console.log(i)
-            mapEachScoreOneDown(leaderboard, i, newScore)
-            i++
-            flagNewHighScoreDetected = true
-            return
-        } else if (i + 1 == leaderboard.topTenScores.length && i < 10 && !flagNewHighScoreDetected) {
-            leaderboard.topTenScores[i + 1] = newScore
-        }
-        else {
-            i++
-        }
-    });
+    // if Leaderboard is empty -> just add it
+    if (leaderboard.topTenScores.length == 0) {
+        leaderboard.topTenScores[0] = newScore
+    }
+    else {
+        // if leaderboard is not empty, iterate over each score in array
+        leaderboard.topTenScores.forEach(scoreFromDB => {
+            // check if newScore should be placed over scoreFromDB
+            if ((newScore.score > scoreFromDB.score && !flagNewHighScoreDetected) || (newScore.score >= scoreFromDB.score && newScore.timeInMilliseconds < scoreFromDB.timeInMilliseconds && !flagNewHighScoreDetected)) {
+                console.log(scoreFromDB)
+                console.log(i)
+                mapEachScoreOneDown(leaderboard, i, newScore)
+                i++
+                flagNewHighScoreDetected = true
+                return
+            } else if (i + 1 == leaderboard.topTenScores.length && i < 10 && !flagNewHighScoreDetected) {
+                leaderboard.topTenScores[i + 1] = newScore
+            }
+            else {
+                i++
+            }
+        });
+    }
 
+    // rotates all entries down by one and removes a Score if more than 10 entries in array
     function mapEachScoreOneDown(leaderboard, i, newScore) {
         console.log("i: " + i)
         console.log("length of array before " + leaderboard.topTenScores.length)
@@ -96,6 +105,7 @@ server.post('/api/v1/score', async (req, res) => {
         leaderboard.topTenScores.splice(10, 1)
     }
 
+    // update leaderboard in MongoDB
     const result = await collection.updateOne({ status: "ok" }, { $set: leaderboard });
     if (result) {
         res.send(await collection.findOne({ status: "ok" }));
@@ -105,6 +115,6 @@ server.post('/api/v1/score', async (req, res) => {
     res.end();
 });
 
-
+// starting server
 var listener = server.listen(8085);
 console.log("Server running at port " + listener.address().port)
