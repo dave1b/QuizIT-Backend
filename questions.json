@@ -1,0 +1,227 @@
+[
+  {
+    "question": "Welches von den folgenden ist eine Programmiersprache?",
+    "answerOne": "Tennis",
+    "answerTwo": "Billiard",
+    "answerThree": "Dart",
+    "answerFour": "Poker",
+    "correctAnswer": 3,
+    "questionSet": 1
+  },
+  {
+    "question": "Welche ist die erste Suchmaschine im Internet?",
+    "answerOne": "Google",
+    "answerTwo": "Archie",
+    "answerThree": "Altavista",
+    "answerFour": "WAIS",
+    "correctAnswer": 2,
+    "questionSet": 1
+  },
+  {
+    "question": "Anzahl der von der IPv6-Adresse verwendeten Bits",
+    "answerOne": "32 bit",
+    "answerTwo": "64 bit",
+    "answerThree": "128 bit",
+    "answerFour": "256 bit",
+    "correctAnswer": 3,
+    "questionSet": 1
+  },
+  {
+    "question": "Welcher ist der erste Webbrowser, der 1990 erfunden wurde?",
+    "answerOne": "Internet Explorer",
+    "answerTwo": "Mosaic",
+    "answerThree": "Mozilla",
+    "answerFour": "Nexus",
+    "correctAnswer": 4,
+    "questionSet": 1
+  },
+  {
+    "question": "Welche der folgenden Programmiersprachen wird verwendet, um Programme wie Applets zu erstellen?",
+    "answerOne": "COBOL",
+    "answerTwo": "C",
+    "answerThree": "Java",
+    "answerFour": "BASIC",
+    "correctAnswer": 3,
+    "questionSet": 1
+  },
+  {
+    "question": "Der erste Computervirus ist bekannt als",
+    "answerOne": "Rabbit",
+    "answerTwo": "Creeper Virus",
+    "answerThree": "Elk Cloner",
+    "answerFour": "SCA Virus",
+    "correctAnswer": 2,
+    "questionSet": 2
+  },
+  {
+    "question": "Die Firewall im Computer wird verwendet für",
+    "answerOne": "Security",
+    "answerTwo": "Data Transmission",
+    "answerThree": "Authentication",
+    "answerFour": "Monitoring",
+    "correctAnswer": 1,
+    "questionSet": 2
+  },
+  {
+    "question": "Anzahl der Schichten im OSI-Modell (Open Systems Interconnection)",
+    "answerOne": "9",
+    "answerTwo": "3",
+    "answerThree": "7",
+    "answerFour": "11",
+    "correctAnswer": 3,
+    "questionSet": 2
+  },
+  {
+    "question": "1024 Bit entspricht wie vielen Byte",
+    "answerOne": "1 Byte",
+    "answerTwo": "128 Byte",
+    "answerThree": "32 Byte",
+    "answerFour": "64 Byte",
+    "correctAnswer": 2,
+    "questionSet": 2
+  },
+  {
+    "question": "Welches ist das erste vollständig unterstützte 64-Bit-Betriebssystem?",
+    "answerOne": "Windows Vista",
+    "answerTwo": "Mac",
+    "answerThree": "Linux",
+    "answerFour": "Windows XP",
+    "correctAnswer": 3,
+    "questionSet": 2
+  },
+  {
+    "question": "Die Computerfestplatte wurde erstmals 1956 eingeführt von",
+    "answerOne": "Dell",
+    "answerTwo": "Apple",
+    "answerThree": "Microsoft",
+    "answerFour": "IBM",
+    "correctAnswer": 4,
+    "questionSet": 3
+  },
+  {
+    "question": "In der Computerwelt bezieht sich der Begriff Trojaner auf",
+    "answerOne": "Virus",
+    "answerTwo": "Malware",
+    "answerThree": "Worm",
+    "answerFour": "Spyware",
+    "correctAnswer": 2,
+    "questionSet": 3
+  },
+  {
+    "question": "Welches Protokoll wird für den Empfang von E-Mails verwendet?",
+    "answerOne": "SMTP",
+    "answerTwo": "POP3",
+    "answerThree": "HTTP",
+    "answerFour": "FTP",
+    "correctAnswer": 2,
+    "questionSet": 3
+  },
+  {
+    "question": "Welches Computerprogramm wandelt Assemblersprache in Maschinensprache um?",
+    "answerOne": "Interpreter",
+    "answerTwo": "Compiler",
+    "answerThree": "Assembler",
+    "answerFour": "Comparator",
+    "correctAnswer": 3,
+    "questionSet": 3
+  },
+  {
+    "question": "Wie viele primäre Partitionen können maximal auf einer Festplatte erstellt werden?",
+    "answerOne": "2",
+    "answerTwo": "3",
+    "answerThree": "4",
+    "answerFour": "1",
+    "correctAnswer": 3,
+    "questionSet": 3
+  },
+  {
+    "question": "Welches Protokoll wird für den E-Mail-Versand verwendet?",
+    "answerOne": "HTTP",
+    "answerTwo": "POP3",
+    "answerThree": "SMTP",
+    "answerFour": "SSH",
+    "correctAnswer": 3,
+    "questionSet": 4
+  },
+  {
+    "question": "Welches ist ein Beispiel für verbindungslose Protokolle?",
+    "answerOne": "TCP",
+    "answerTwo": "IPX/SPX",
+    "answerThree": "Frame Relay",
+    "answerFour": "UDP",
+    "correctAnswer": 4,
+    "questionSet": 4
+  },
+  {
+    "question": "Eine gemeinsame Grenze zwischen zwei Computersystemen ist bekannt als",
+    "answerOne": "Interface",
+    "answerTwo": "Surface",
+    "answerThree": "Intradiction",
+    "answerFour": "Dependeny Injection",
+    "correctAnswer": 1,
+    "questionSet": 4
+  },
+  {
+    "question": "Welches Unternehmen entwickelte als erstes die Programmiersprache Java?",
+    "answerOne": "Microsoft",
+    "answerTwo": "Google",
+    "answerThree": "Sun Microsystems",
+    "answerFour": "IBM",
+    "correctAnswer": 3,
+    "questionSet": 4
+  },
+  {
+    "question": "Für was steht PDF ausgeschrieben?",
+    "answerOne": "Printed Document Format",
+    "answerTwo": "Public Document Format",
+    "answerThree": "Portable Document Format",
+    "answerFour": "Published Document Format",
+    "correctAnswer": 3,
+    "questionSet": 4
+  },
+  {
+    "question": "Wer ist der Gründer von Bluetooth?",
+    "answerOne": "Ericsson",
+    "answerTwo": "IBM",
+    "answerThree": "Apple",
+    "answerFour": "Dell",
+    "correctAnswer": 1,
+    "questionSet": 5
+  },
+  {
+    "question": "Welche IP-Adresse kann einem Computersystem in einem Netzwerk nicht zugewiesen werden?",
+    "answerOne": "192.168.1.1",
+    "answerTwo": "127.0.0.1",
+    "answerThree": "192.1.1.27",
+    "answerFour": "keiner der gennanten",
+    "correctAnswer": 2,
+    "questionSet": 5
+  },
+  {
+    "question": "Die Art von Computern, die Millionen von Befehlen und Milliarden von Daten pro Sekunde ausführen können, wird als Sekunde ausführen können, ist bekannt als",
+    "answerOne": "Laptop",
+    "answerTwo": "Hardcore Computer",
+    "answerThree": "Personal Computer",
+    "answerFour": "Mainframe Computer",
+    "correctAnswer": 4,
+    "questionSet": 5
+  },
+  {
+    "question": "Repeater arbeiten auf welchem Layer?",
+    "answerOne": "Physical",
+    "answerTwo": "Data Link",
+    "answerThree": "Network",
+    "answerFour": "Presentation",
+    "correctAnswer": 1,
+    "questionSet": 5
+  },
+  {
+    "question": "Welche der folgenden Zahlen ist die binäre Entsprechung der Dezimalzahl 23",
+    "answerOne": "01011",
+    "answerTwo": "10111",
+    "answerThree": "10011",
+    "answerFour": "11011",
+    "correctAnswer": 2,
+    "questionSet": 5
+  }
+]
