@@ -4,16 +4,19 @@
   "description": "REST-API",
   "main": "quizITserver.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./tests/quizITServerIT.js",
     "start": "node quizITserver.js",
     "dev": "nodemon quizITserver.js"
   },
   "author": "Dave B, Daniele M",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.6",
     "dotenv": "^16.0.0",
     "express": "^4.18.1",
+    "mocha": "^10.0.0",
     "mongodb": "^4.6.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
   }
 }
