@@ -28,8 +28,8 @@ server.get('/api/v1/questionSet', async (req, res) => {
     const db = client.db('quizIT');
     const collection = db.collection('questions');
     var questionSetCount = 5
-    while(randomNumberForSet == lastQuestionSet) {
-        randomNumberForSet = Math.floor(Math.random() * questionSetCount)+1;
+    while (randomNumberForSet == lastQuestionSet) {
+        randomNumberForSet = Math.floor(Math.random() * questionSetCount) + 1;
     }
     lastQuestionSet = randomNumberForSet
     console.log(randomNumberForSet)
@@ -67,13 +67,18 @@ First it looks at the score-points and then at the time.
 The higher the points and the lower the time -> the higher is the rank.
 */
 server.post('/api/v1/score', async (req, res) => {
-    console.log("new score received: " + req.body.score)
+    console.log("new score received: " + JSON.stringify(req.body))
     const client = await mongoClient.connect(connectionString);
     const db = client.db('quizIT');
     const collection = db.collection('leaderboard');
     const leaderboard = await collection.findOne({ status: "ok" })
 
     var newScore = req.body
+    if (typeof(newScore.score) == 'undefined') {
+        res.status(404);
+        res.end();
+        return
+    }
     var i = 0
     var flagNewHighScoreDetected = false
 
@@ -85,9 +90,8 @@ server.post('/api/v1/score', async (req, res) => {
         // if leaderboard is not empty, iterate over each score in array
         leaderboard.topTenScores.forEach(scoreFromDB => {
             // check if newScore should be placed over scoreFromDB
-            if ((newScore.score > scoreFromDB.score && !flagNewHighScoreDetected) || (newScore.score >= scoreFromDB.score && newScore.timeInMilliseconds < scoreFromDB.timeInMilliseconds && !flagNewHighScoreDetected)) {
-                console.log(scoreFromDB)
-                console.log(i)
+            if ((newScore.score > scoreFromDB.score && !flagNewHighScoreDetected) ||
+                (newScore.score >= scoreFromDB.score && newScore.timeInMilliseconds < scoreFromDB.timeInMilliseconds && !flagNewHighScoreDetected)) {
                 mapEachScoreOneDown(leaderboard, i, newScore)
                 i++
                 flagNewHighScoreDetected = true
@@ -103,7 +107,6 @@ server.post('/api/v1/score', async (req, res) => {
 
     // rotates all entries down by one and removes a Score if more than 10 entries in array
     function mapEachScoreOneDown(leaderboard, i, newScore) {
-        console.log("i: " + i)
         console.log("length of array before " + leaderboard.topTenScores.length)
         leaderboard.topTenScores.splice((i), 0, newScore)
         console.log("length of array " + leaderboard.topTenScores.length)
@@ -113,13 +116,36 @@ server.post('/api/v1/score', async (req, res) => {
     // update leaderboard in MongoDB
     const result = await collection.updateOne({ status: "ok" }, { $set: leaderboard });
     if (result) {
-        res.send(await collection.findOne({ status: "ok" }));
+        var newLeaderboard = await collection.findOne({ status: "ok" })
+        res.send(newLeaderboard.topTenScores);
     } else {
         res.status(404);
     }
     res.end();
 });
 
+
+// method which at initial start, fills backend/database with questions and an empty leaderboard
+async function checkIfTemplateReady() {
+    const client = await mongoClient.connect(connectionString);
+    const db = client.db('quizIT');
+    const leaderboardCollection = db.collection('leaderboard');
+    const leaderboard = await leaderboardCollection.findOne({ status: "ok" })
+    if (!leaderboard) {
+        console.log("initially inserting empty leaderboard")
+        const emptyLeaderboard = require('./emptyLeaderboard.json');
+        await leaderboardCollection.insertOne(emptyLeaderboard)
+    }
+    const collectionQuestions = db.collection('questions');
+    const questions = await collectionQuestions.find({ questionSet: 1 }).toArray();
+    if (questions.length < 0) {
+        console.log("initially inserting questions to DB")
+        const questions = require('./questions.json');
+        await collectionQuestions.insertMany(questions)
+    }
+}
+
 // starting server
+checkIfTemplateReady()
 var listener = server.listen(8085);
 console.log("Server running at port " + listener.address().port)
