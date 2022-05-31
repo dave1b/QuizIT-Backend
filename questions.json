@@ -36,7 +36,7 @@
     "questionSet": 1
   },
   {
-    "question": "Welche der folgenden Programmiersprachen wird verwendet, um Programme wie Applets zu erstellen?",
+    "question": "Welche Sprache wird verwendet, um Programme wie Applets zu erstellen?",
     "answerOne": "COBOL",
     "answerTwo": "C",
     "answerThree": "Java",
@@ -189,7 +189,7 @@
     "questionSet": 5
   },
   {
-    "question": "Welche IP-Adresse kann einem Computersystem in einem Netzwerk nicht zugewiesen werden?",
+    "question": "Welche IP-Adresse kann einem Computer in einem Netzwerk nicht zugewiesen werden?",
     "answerOne": "192.168.1.1",
     "answerTwo": "127.0.0.1",
     "answerThree": "192.1.1.27",
@@ -198,7 +198,7 @@
     "questionSet": 5
   },
   {
-    "question": "Die Art von Computern, die Millionen von Befehlen und Milliarden von Daten pro Sekunde ausführen können, wird als Sekunde ausführen können, ist bekannt als",
+    "question": "Welche sind Computer die Millionen von Befehlen pro Sekunde ausführen könne?",
     "answerOne": "Laptop",
     "answerTwo": "Hardcore Computer",
     "answerThree": "Personal Computer",
